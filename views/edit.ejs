@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit User</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    p{
+        text-align: center;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      width: 50%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+    textarea, input[type="password"], button {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit User</h1>
+  <p>You are editing the user with the email: <strong><%= user.email %></strong></p>
+
+  <form method="POST" action="/user/<%= user.id %>?_method=PATCH">
+    <label for="username">Username:</label><br>
+    <textarea name="username" id="username" rows="3" required><%= user.username %></textarea><br>
+
+    <label for="password">New Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter a new password" required><br>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</body>
+</html>
